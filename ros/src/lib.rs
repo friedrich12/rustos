@@ -2,12 +2,14 @@
 #![cfg_attr(test, no_main)]
 #![feature(custom_test_frameworks)]
 #![test_runner(crate::test_runner)]
+#![feature(abi_x86_interrupt)]
 #![reexport_test_harness_main = "test_main"]
 
 use::core::panic::PanicInfo;
 
 pub mod serial;
 pub mod vga_buffer;
+pub mod interrupts;
 
 #[cfg(test)]
 #[panic_handler]

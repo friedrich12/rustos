@@ -40,7 +40,10 @@ pub extern "C" fn _start() -> ! {
     // write!(w.lock(), ", some numbers: {} {}", 42, 1.337).unwrap();
     println!("Hello World {}", "!");
     // panic!("WFT");
-    
+    ros::init();
+
+    // invoke a breakpoint exception
+    x86_64::instructions::interrupts::int3();
     #[cfg(test)]
     test_main();
     loop {}
