@@ -20,6 +20,6 @@ fn should_fail() {
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {
     serial_println!("[ok]");
-    exit_qemu(QemuExitCode::Sucsess);
+    exit_qemu(QemuExitCode::Success);
     loop {}
 }
