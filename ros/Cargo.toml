@@ -21,7 +21,7 @@ path = "src/tests/should_panic.rs"
 [[test]]
 name = "stack_overflow"
 harness = false
-path = "src/tests/stack_overflow"
+path = "src/tests/stack_overflow.rs"
 
 [package.metadata.bootimage]
 test-success-exit-code = 33         # (0x10 << 1) | 1
@@ -29,6 +29,7 @@ test-args = ["-device", "isa-debug-exit,iobase=0xf4,iosize=0x04","-serial","stdi
 
 [dependencies.lazy_static]
 version = "1.0"
+pic8259_simple = "0.1.1"
 features = ["spin_no_std"]
 
 [profile.dev]
