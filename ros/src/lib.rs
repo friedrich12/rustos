@@ -60,4 +60,5 @@ pub extern "C" fn _start() -> ! {
 pub fn init(){
     gdt::init();
     interrupts::init_idt();
+    unsafe {interrupts::PICS.lock().initialize()};
 }

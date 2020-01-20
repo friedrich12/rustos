@@ -8,11 +8,10 @@ use crate::gdt;
 use pic8259_simple::ChainedPics;
 use spin;
 
-
 pub const PIC_1_OFFSET: u8 = 32;
 pub const PCI_2_OFFSET: u8 = PIC_1_OFFSET + 8;
 
-pub static spin::Mutex<ChainedPics> = 
+pub static PICS: spin::Mutex<ChainedPics> = 
             spin::Mutex::new(unsafe {ChainedPics::new(PIC_1_OFFSET, PCI_2_OFFSET)});
 
 //static mut IDT: InterruptDescriptorTable = InterruptDescriptorTable::new();
