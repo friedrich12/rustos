@@ -3,6 +3,7 @@
 #![feature(custom_test_frameworks)]
 #![test_runner(crate::test_runner)]
 #![feature(abi_x86_interrupt)]
+#![feature(asm)]
 #![reexport_test_harness_main = "test_main"]
 
 use::core::panic::PanicInfo;
@@ -61,4 +62,5 @@ pub fn init(){
     gdt::init();
     interrupts::init_idt();
     unsafe {interrupts::PICS.lock().initialize()};
+    unsafe {asm!("sti")}; // enable interrupts
 }
